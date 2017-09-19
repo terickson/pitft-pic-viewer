@@ -6,7 +6,6 @@ After=multi-user.target
 Type=simple
 ExecStart=/home/pi/pitft-pic-viewer/run.sh
 User=pi
-WorkingDirectory=/home/pi/pitft-pic-viewer
 Restart=on-failure
 
 [Install]
