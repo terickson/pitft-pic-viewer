@@ -5,7 +5,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/home/pi/pitft-pic-viewer/run.py
+ExecStart=/home/pi/pitft-pic-viewer/run.sh
 User=root
 WorkingDirectory=/home/pi/pitft-pic-viewer
 Restart=on-failure
