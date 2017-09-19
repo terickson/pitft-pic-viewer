@@ -1,0 +1,14 @@
+***pitft-pic-viewer.service***
+[Unit]
+Description=PitftPicViewer
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/pitft-pic-viewer/run.py
+User=root
+WorkingDirectory=/home/pi/pitft-pic-viewer
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
