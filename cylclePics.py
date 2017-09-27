@@ -9,20 +9,13 @@ parser.add_argument('--sleepTime', dest='sleepTime', required=True, type=int, he
 args = parser.parse_args()
 picFolder = args.picFolder
 sleepTime = args.sleepTime
-viewCommand = '/usr/bin/fbi -T 2 -d /dev/fb1 -noverbose -a '
+viewCommand = '/usr/bin/fbi -T ' + str(sleepTime) + ' -noverbose -a -t 2 -u -d /dev/fb1 `find ' + picFolder + ' -iname "*.png" -o -iname "*.jpg"`
 
 
 def main():
+    call([command], shell=True)
     while True:
-        dirList = os.listdir(picFolder)
-        dirList.sort()
-        for filename in dirList:
-            if filename.endswith('.png') or filename.endswith('.jpg'):
-                command = viewCommand + picFolder + '/' + filename
-                call([command], shell=True)
-                sleep(sleepTime)
-            else:
-                continue
+        pass
 
 
 if __name__ == '__main__':

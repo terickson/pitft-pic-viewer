@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo /usr/bin/python /home/pi/pitft-pic-viewer/cylclePics.py --picFolder /home/pi/images_480x320 --sleepTime 15
+sudo /usr/bin/python /home/pi/pitft-pic-viewer/cylclePics.py --picFolder /home/pi/images_480x320 --sleepTime 5
