@@ -9,7 +9,7 @@ parser.add_argument('--sleepTime', dest='sleepTime', required=True, type=int, he
 args = parser.parse_args()
 picFolder = args.picFolder
 sleepTime = args.sleepTime
-viewCommand = '/usr/bin/fbi -T ' + str(sleepTime) + ' -noverbose -a -t 2 -u -d /dev/fb1 `find ' + picFolder + ' -iname "*.png" -o -iname "*.jpg"`
+viewCommand = '/usr/bin/fbi -T ' + str(sleepTime) + ' -noverbose -a -t 2 -u -d /dev/fb1 `find ' + picFolder + ' -iname "*.png" -o -iname "*.jpg"`'
 
 
 def main():
