@@ -1,6 +1,4 @@
 
-import os
-from time import sleep
 import argparse
 from subprocess import call
 parser = argparse.ArgumentParser(description='update google calendar')
@@ -13,7 +11,7 @@ viewCommand = '/usr/bin/fbi -T ' + str(sleepTime) + ' -noverbose -a -t 2 -u -d /
 
 
 def main():
-    call([command], shell=True)
+    call([viewCommand], shell=True)
     while True:
         pass
 
