@@ -1,6 +1,6 @@
 
 import argparse
-from subprocess import call
+from subprocess import Popen
 parser = argparse.ArgumentParser(description='update google calendar')
 parser.add_argument('--picFolder', dest='picFolder', required=True, type=str, help="Get the folder that the pictures will be coming from.")
 parser.add_argument('--sleepTime', dest='sleepTime', required=True, type=int, help="Get the time to sleep between pictures.")
@@ -11,9 +11,10 @@ viewCommand = '/usr/bin/fbi -T 2 -noverbose -a -t ' + str(sleepTime) + ' -u -d /
 
 
 def main():
-    call([viewCommand], shell=True)
     while True:
-        pass
+        proc = Popen([viewCommand], shell=True)
+        #wait while its running if it stops restart it
+        proc.communicate()
 
 
 if __name__ == '__main__':
