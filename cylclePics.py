@@ -1,14 +1,17 @@
 import os
 import argparse
-from subprocess import call, check_output
+from subprocess import call, check_output, CalledProcessError
 from time import sleep
 
 
 def get_pid(name):
-    strPid = check_output(["pidof", name])
-    if strPid:
-        return int(strPid.split(' ')[0])
-    return False
+    try:
+        strPid = check_output(["pidof", name])
+        if strPid:
+            return int(strPid.split(' ')[0])
+        return False
+    except CalledProcessError:
+        return False
 
 
 def check_pid(pid):
