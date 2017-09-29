@@ -1,7 +1,7 @@
 import os
 import argparse
 from subprocess import call, check_output
-from Time import sleep
+from time import sleep
 
 
 def get_pid(name):
