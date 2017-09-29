@@ -5,7 +5,10 @@ from time import sleep
 
 
 def get_pid(name):
-    return check_output(["pidof", name])
+    strPid = check_output(["pidof", name])
+    if strPid:
+        return int(strPid.split(' ')[0])
+    return False
 
 
 def check_pid(pid):
@@ -29,9 +32,11 @@ viewCommand = '/usr/bin/fbi -T 2 -noverbose -a -t ' + str(sleepTime) + ' -u -d /
 
 def main():
     while True:
-        call([viewCommand], shell=True)
-        sleep(1)
         pid = get_pid("fbi")
+        if not pid:
+            call([viewCommand], shell=True)
+            sleep(1)
+            pid = get_pid("fbi")
         while True:
             if not check_pid(pid):
                 break
